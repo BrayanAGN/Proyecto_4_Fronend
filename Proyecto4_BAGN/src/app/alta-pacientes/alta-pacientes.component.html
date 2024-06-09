@@ -1,0 +1,43 @@
+<div class="conteiner">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Formulario alta cliente</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="font-group">
+                <label for="">Nombre</label>
+                <input type="text" name="" id="" class="form-control" #nombre>
+            </div>
+
+            <div class="font-group">
+                <label for="">Fecha de Nacimiento</label>
+                <input type="text" name="fecha" id="fecha" class="form-control" #fechaNacimiento>
+            </div>
+
+            <div class="font-group">
+                <label for="genero">Género:</label>
+                <select #select_genero class="custom-select">
+                    <option *ngFor="let gen of genero" [value]="gen">{{gen}}</option>
+                </select>
+            </div>
+
+            <div class="font-group">
+                <label for="">Telefono</label>
+                <input type="text" name="" id="" class="form-control" #telefono>
+            </div>
+
+            <div class="font-group">
+                <label for="">Correo Electronico</label>
+                <input type="text" name="" id="" class="form-control" #correo>
+            </div>
+            
+            <div class="font-group">
+               <button class="btn btn-success" (click)="guardarCliente()">Guardar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

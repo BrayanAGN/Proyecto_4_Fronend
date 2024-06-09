@@ -13,6 +13,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            // //script data picker
+            "scripts": [
+            "node_modules/jquery/dist/jquery.min.js",
+            "node_modules/jquery-ui-dist/jquery-ui.min.js"
+            ],
             "outputPath": "dist/proyecto4-bagn",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -97,5 +102,9 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ce0c01e9-1938-44c3-becc-1bbf12e6e6e4"
   }
+  
 }
