@@ -13,9 +13,11 @@ export class PacientesServiceService {
    public urlServidor: string = "http://localhost:8082/";//url del servidor backend local
    //public urlServidor: string ="http://10.10.10.36:8082/"; ///ambiente de pruebas
    public listaPacientes: any[];
+   public genero: any[];
    
    constructor(private http: HttpClient, private router: Router) { 
      this.listaPacientes = [];
+     this.genero=[]
    }
  
    // Método para obtener la lista de pacientes
@@ -31,27 +33,37 @@ export class PacientesServiceService {
    }
  
    // Método para guardar un paciente
-   guardarPaciente(paciente: any): void {
-     this.http.post(this.urlServidor + "api/pacientes", paciente).subscribe(
-       (respuesta: any) => {
-         console.log(respuesta.msg);
-         Swal.fire({
-           title: "Paciente guardado correctamente",
-           showDenyButton: false,
-           showCancelButton: false,
-           confirmButtonText: "OK",
-         }).then((result) => {
-           if (result.isConfirmed) {
-             this.router.navigate(["pacientes"]);
-           } else if (result.isDenied) {
-             Swal.fire("Los cambios no fueron guardados", "", "info");
-           }
-         });
-       },
-       error => {
-         console.error('Error al guardar el paciente', error);
-         Swal.fire("Error", "No se pudo guardar el paciente", "error");
-       }
-     );
+   guardarPacientes(nombre: String, fechaNacimiento: Date, genero: string, telefono: string, correo: string){
+    this.http.post(this.urlServidor+"api/pacientes",{
+      "nombre": nombre,
+      "fechaNacimiento": fechaNacimiento,
+      "genero": genero,
+      "telefono": telefono,
+      "correoElectronico": correo
+    },).subscribe((respuesta: any)=>{
+      console.log(respuesta.msg);
+
+      Swal.fire({
+        title: "paciente guardado correctamente",
+        showDenyButton: false,
+        showCancelButton: false,
+        confirmButtonText: "OK",
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          // this.obtenerListaClientes();
+          this.router.navigate(["pacientes"]);// sirve para redireccoonar una vez confirmado el registrp
+        } else if (result.isDenied) {
+          Swal.fire("Changes are not saved", "", "info");
+        }
+      });
+    });
    }  
+
+   //metodo para genero 
+   ObtenerGenero(){
+    console.log("Obteniendo categorías..."); // Agrega un console.log() para verificación
+    return this.http.get<any[]>(this.urlServidor + "api/pacientes/genero");
+  
+  }
 }
