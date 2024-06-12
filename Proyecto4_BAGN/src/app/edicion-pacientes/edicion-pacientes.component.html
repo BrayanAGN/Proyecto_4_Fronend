@@ -1,0 +1,45 @@
+<div class="conteiner">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Formulario Edicion pacientes</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="font-group">
+                <label for="">Nombre</label>
+                <input type="text" name="" id="" class="form-control" #nombre [value]="paciente.nombre">
+            </div>
+
+            <div class="font-group">
+                <label for="">Fecha de nacimiento</label>
+                <input type="text" name="" id="" class="form-control" #fechaNacimiento [value]="paciente.fechaNacimiento">
+            </div>
+
+            <div class="font-group">
+                <label for="genero">Género:</label>
+                <select #select_genero [value]="paciente.genero" class="custom-select">
+                <option *ngFor="let gen of genero" [value]="gen">{{gen}}</option>
+                </select>
+            </div>
+
+            <div class="font-group">
+                <label for="">Telefono</label>
+                <input type="text" name="" id="" class="form-control" #telefono [value]="paciente.telefono">
+            </div>
+
+            <div class="font-group">
+                <label for="">Correo</label>
+                <input type="text" name="" id="" class="form-control" #correo [value]="paciente.correoElectronico">
+            </div>
+
+            
+
+            <div class="font-group">
+               <button class="btn btn-success" (click)="guardarPacientes()">Guardar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

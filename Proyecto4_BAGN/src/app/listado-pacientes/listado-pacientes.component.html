@@ -26,16 +26,16 @@
                     <td>{{p.genero}}</td>
                     <td>{{p.telefono}} + "  " + {{p.correoElectronico}}</td>
                     <td>
-                        <a href="" class="btn btn-success">Detalle</a>
+                        <a [routerLink]="['/pacientes/obtener', p.id]" class="btn btn-success">Detalle</a>
                     </td>
                     <td>
-                        <a href="" class="btn btn-primary">Editar</a>
+                        <a [routerLink]="['/pacientes/actualizar', p.id]" class="btn btn-primary">Editar</a>
                     </td>
                     <td>
-                        <a href="" class="btn btn-danger">Eliminar</a>
+                        <button (click)="eliminar(p.id)" class="btn btn-danger">Eliminar</button>
                     </td>
                     <td>
-                        <a href="" class="btn btn-warning">Ver ventas</a>
+                        <a (click)="consultarHistorialMedico(p.id)"  class="btn btn-warning">Historial Medico</a>
                     </td>
                   </tr>
                 </tbody>

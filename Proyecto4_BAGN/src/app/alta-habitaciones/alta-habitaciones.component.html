@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Formulario alta habitaciones</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="numeroHabitacion">Número de Habitación</label>
+                <input type="text" name="numeroHabitacion" id="numeroHabitacion" class="form-control" #numeroHabitacion>
+            </div>
+
+            <div class="form-group">
+                <label for="genero">Tipo de Habitación</label>
+                <select #tipoHabitacion class="custom-select">
+                    <option *ngFor="let t of tipo" [value]="t">{{t}}</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="genero">Estado</label>
+                <select #estadoHabitacion class="custom-select">
+                    <option *ngFor="let e of estado" [value]="e">{{e}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="paciente">ID del Paciente</label>
+                <input type="number" name="paciente" id="paciente" class="form-control" #paciente>
+            </div>
+            
+            <div class="form-group">
+               <button class="btn btn-success" (click)="guardarHabitacion()">Guardar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -6,13 +6,18 @@ import { ListadoPacientesComponent } from './listado-pacientes/listado-pacientes
 import { AltaPacientesComponent } from './alta-pacientes/AltaPacientesComponent';
 import { ListadoMedicosComponent } from './listado-medicos/listado-medicos.component';
 import { AltaMedicosComponent } from './alta-medicos/alta-medicos.component';
+import { DetallePacienteComponent } from './detalle-paciente/detalle-paciente.component';
+import { HistorialMedicoComponent } from './historial-medico/historial-medico.component';
+import { AltaHabitacionesComponent } from './alta-habitaciones/alta-habitaciones.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet, FooterComponent, NavBarComponent, ListadoPacientesComponent, AltaPacientesComponent,
-    ListadoMedicosComponent, AltaMedicosComponent
+    ListadoMedicosComponent, AltaMedicosComponent, DetallePacienteComponent,HistorialMedicoComponent, AltaHabitacionesComponent
+    
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
